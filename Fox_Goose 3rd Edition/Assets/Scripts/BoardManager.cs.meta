@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9497f4d85ca57274f9addef622b05e3c
+timeCreated: 1458732024
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - occupyPoo: {fileID: 137594, guid: 2d4a7756b82912a41bc16bb9e4aaac20, type: 2}
+  - goose: {fileID: 168780, guid: 15e06639d80d4274fa30846cd32acbd7, type: 2}
+  - groundTiles: {fileID: 128052, guid: 38772ac2c1ed2f0419167ff46a61d154, type: 2}
+  - hint: {fileID: 178454, guid: 679cc1d3d60fafd4fbebcfadeca7963b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

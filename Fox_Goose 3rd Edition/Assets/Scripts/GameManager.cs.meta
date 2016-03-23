@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f5ea7469bb58b1e4cae012325b81a083
+timeCreated: 1457189316
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - groundTiles: {fileID: 128052, guid: 38772ac2c1ed2f0419167ff46a61d154, type: 2}
+  - goose: {fileID: 168780, guid: 15e06639d80d4274fa30846cd32acbd7, type: 2}
+  - fox: {fileID: 181570, guid: 0b1ad04bacd7fde4ebfdb1db935380ac, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
