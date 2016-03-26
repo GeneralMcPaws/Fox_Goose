@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Goose.cs" />
     <Compile Include="Assets\Scripts\HintButtonManager.cs" />
     <Compile Include="Assets\Scripts\HintManager.cs" />
+    <Compile Include="Assets\Scripts\LoadOnClick.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
