@@ -26,8 +26,6 @@ public class BoardManager : MonoBehaviour {
 
     private IList<Coordinate> jumpMoves;
     private List<Coordinate> adjacentCoordinates = new List<Coordinate>();
-    //private List<Coordinate> hintMoves;
-    
 
     public void SetupScene()
 	{
@@ -313,7 +311,13 @@ public class BoardManager : MonoBehaviour {
 
     public bool FoxCanJump
     {
-        get{ return jumpMoves.Count != 0; }
+        get 
+        {
+            if (jumpMoves != null)
+                return jumpMoves.Count != 0;
+
+            return false;
+        }
     }
 
 
@@ -327,13 +331,13 @@ public class BoardManager : MonoBehaviour {
     }
 }
 
-class Coordinate
+public class Coordinate
 {
     private int x;
     private int y;
-    private Direction direction;
+    private Direction direction = null;
 
-    public Coordinate(int x, int y,Direction direction)
+    public Coordinate(int x, int y,Direction direction=null)
     {
         X = x;
         Y = y;

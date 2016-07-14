@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
     private BoardManager boardScript;
 
 	public static GameManager instance = null;
+    private Moveset moveset;
 
 	void Awake()
 	{
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour {
         boardScript.Fox = fox;
         boardScript.SetupScene();
 
+        moveset = FindObjectOfType(typeof(Moveset)) as Moveset;
+        
         UI_WhoPlays(false);
 	}
 
@@ -74,6 +77,8 @@ public class GameManager : MonoBehaviour {
     private void FoxTurn(int xFoxPos,int yFoxPos)
     {
         MoveState moveState = boardScript.IsMoveAllowed(xFoxPos, yFoxPos);
+        var xCurrentPos = (int)boardScript.Fox.transform.position.x;
+        var yCurrentPos = (int)boardScript.Fox.transform.position.y;
 
         switch (moveState)
         {
@@ -83,11 +88,13 @@ public class GameManager : MonoBehaviour {
                 break;
             case MoveState.NORMAL:
                 NotificationTextUpdate(moveState);
+                moveset.StoreMove("FOX", new Coordinate(xCurrentPos, yCurrentPos), new Coordinate(xFoxPos, yFoxPos), MoveState.NORMAL);
                 MoveFox(xFoxPos, yFoxPos);
                 UpdateScore(moveState);
                 break;
             case MoveState.JUMP:
                 NotificationTextUpdate(moveState);
+                moveset.StoreMove("FOX", new Coordinate(xCurrentPos, yCurrentPos), new Coordinate(xFoxPos, yFoxPos), MoveState.JUMP);
                 JumpFox(xFoxPos, yFoxPos);
                 UpdateScore(moveState);
                 break;
@@ -99,8 +106,11 @@ public class GameManager : MonoBehaviour {
     private void GooseTurn(CellState cellState,  int xPos,  int yPos)
     {
         NotificationTextUpdate(MoveState.NORMAL,cellState);
-        if(cellState == CellState.EMPTY)
+        if (cellState == CellState.EMPTY)
+        {
+            moveset.StoreMove("Goose", null, new Coordinate(xPos, yPos), MoveState.NORMAL);
             MoveGoose(xPos, yPos);
+        }
     }
 
 
@@ -140,7 +150,7 @@ public class GameManager : MonoBehaviour {
 
     bool hasGameEnded()
     {
-        if(foxPoints >= pointsToWin || !boardScript.HasFoxMovesLeft((int)fox.transform.position.x,(int)fox.transform.position.y))
+        if(foxPoints >= pointsToWin || !boardScript.HasFoxMovesLeft((int)boardScript.Fox.transform.position.x,(int)boardScript.Fox.transform.position.y))
             return true; 
         return false;
     }
@@ -148,6 +158,7 @@ public class GameManager : MonoBehaviour {
 
     void EndGame()
     {
+        notificationText.text = "GAME ENDED";
         Debug.Log("GAME HAS ENDED");
         UnityEditor.EditorApplication.isPaused = true;
     }
