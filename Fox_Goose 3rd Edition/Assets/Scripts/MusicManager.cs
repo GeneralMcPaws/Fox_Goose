@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
 
     static MusicManager instance = null;
 
-    private AudioSource audioSource;
+    private AudioSource audioSource = null;
    
   
 
