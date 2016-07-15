@@ -2,35 +2,43 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Moveset : MonoBehaviour {
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
-    public List<Move> moves;
+[System.Serializable]
+public class Moveset : MonoBehaviour{
 
-    private Moveset()
-    {
-        moves = new List<Move>();
-    }
+    public MovesDB moves = new MovesDB();
+    
 
     public Move Undo()
     {
-        if (moves.Count == 0)
+        if (moves.list.Count == 0)
             return null;
-        Move lastMove = moves[moves.Count - 1];
-        moves.RemoveAt(moves.Count - 1);
+        Move lastMove = moves.list[moves.list.Count - 1];
+        moves.list.RemoveAt(moves.list.Count - 1);
         return lastMove;
     }
 
     public void StoreMove(string playerName, Coordinate startPos, Coordinate finishPos, MoveState moveType)
     {
         Move currentMove = new Move(playerName, startPos, finishPos, moveType);
-        moves.Add(currentMove);
+        moves.list.Add(currentMove);
+    }
+
+    public void Save()
+    {
+        XMLManager.instance.movesetDatabase = moves;
+        XMLManager.instance.SaveItems();
     }
 
     public void NewGame()
     {
-        moves.Clear();
+        moves.list.Clear();
     }
 
+    [System.Serializable]
     public class Move
     {
         public string PlayerName { get; set; }
@@ -38,6 +46,10 @@ public class Moveset : MonoBehaviour {
         public Coordinate FinishPos { get; set; }
         public MoveState MoveType { get; set; }
 
+        public Move()
+        {
+            
+        }
         public Move(string playerName, Coordinate startPos, Coordinate finishPos, MoveState moveType)
         {
             PlayerName = playerName;
@@ -47,5 +59,10 @@ public class Moveset : MonoBehaviour {
 
         }
 
+    }
+    [System.Serializable]
+    public class MovesDB
+    {
+        public List<Move> list = new List<Move>();
     }
 }

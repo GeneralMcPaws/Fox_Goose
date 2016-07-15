@@ -337,6 +337,11 @@ public class Coordinate
     private int y;
     private Direction direction = null;
 
+    public Coordinate()
+    {
+
+    }
+
     public Coordinate(int x, int y,Direction direction=null)
     {
         X = x;
@@ -369,6 +374,10 @@ public class Direction
     private int x;
     private int y;
 
+    public Direction()
+    {
+
+    }
     public Direction(int x, int y)
     {
         X = x;
