@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Xml.Serialization;
 
 public enum MoveState
 {
@@ -337,10 +338,7 @@ public class Coordinate
     private int y;
     private Direction direction = null;
 
-    public Coordinate()
-    {
-
-    }
+    public Coordinate() { }
 
     public Coordinate(int x, int y,Direction direction=null)
     {
@@ -349,12 +347,14 @@ public class Coordinate
         Direction = direction;
     }
 
+    [XmlAttribute]
     public int X
     {
         get;
         set;
     }
 
+    [XmlAttribute]
     public int Y
     {
         get;
@@ -369,33 +369,7 @@ public class Coordinate
 
 }
 
-public class Direction
-{
-    private int x;
-    private int y;
 
-    public Direction()
-    {
-
-    }
-    public Direction(int x, int y)
-    {
-        X = x;
-        Y = y;
-    }
-
-    public int X
-    {
-        get;
-        set;
-    }
-
-    public int Y
-    {
-        get;
-        set;
-    } 
-}
 
 
 

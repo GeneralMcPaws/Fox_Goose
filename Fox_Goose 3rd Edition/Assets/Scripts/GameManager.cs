@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Xml.Serialization;
+using System.Collections.Generic;
 
 public enum CellState
 {
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour {
     private BoardManager boardScript;
 
 	public static GameManager instance = null;
-    private Moveset moveset;
+    private Moveset moveset = new Moveset();
 
 	void Awake()
 	{
@@ -48,8 +50,6 @@ public class GameManager : MonoBehaviour {
         boardScript.Fox = fox;
         boardScript.SetupScene();
 
-        moveset = FindObjectOfType(typeof(Moveset)) as Moveset;
-        
         UI_WhoPlays(false);
 	}
 
@@ -88,13 +88,13 @@ public class GameManager : MonoBehaviour {
                 break;
             case MoveState.NORMAL:
                 NotificationTextUpdate(moveState);
-                moveset.StoreMove("FOX", new Coordinate(xCurrentPos, yCurrentPos), new Coordinate(xFoxPos, yFoxPos), MoveState.NORMAL);
+                moveset.Add("FOX", new Coordinate(xCurrentPos, yCurrentPos), new Coordinate(xFoxPos, yFoxPos), MoveState.NORMAL);
                 MoveFox(xFoxPos, yFoxPos);
                 UpdateScore(moveState);
                 break;
             case MoveState.JUMP:
                 NotificationTextUpdate(moveState);
-                moveset.StoreMove("FOX", new Coordinate(xCurrentPos, yCurrentPos), new Coordinate(xFoxPos, yFoxPos), MoveState.JUMP);
+                moveset.Add("FOX", new Coordinate(xCurrentPos, yCurrentPos), new Coordinate(xFoxPos, yFoxPos), MoveState.JUMP);
                 JumpFox(xFoxPos, yFoxPos);
                 UpdateScore(moveState);
                 break;
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour {
         NotificationTextUpdate(MoveState.NORMAL,cellState);
         if (cellState == CellState.EMPTY)
         {
-            moveset.StoreMove("Goose", null, new Coordinate(xPos, yPos), MoveState.NORMAL);
+            moveset.Add("Goose", null, new Coordinate(xPos, yPos), MoveState.NORMAL);
             MoveGoose(xPos, yPos);
         }
     }
@@ -238,4 +238,48 @@ public class GameManager : MonoBehaviour {
     }
     #endregion
 
+    public void SaveState()
+    {
+        moveset.Save();
+    }
+
 }
+
+//public class Moveset
+//{
+
+//    [XmlArrayAttribute("Moves")]
+//    public List<Move> moves = null;
+
+//    public Moveset()
+//    {
+//        moves = new List<Move>();
+//    }
+
+//    public Move Undo()
+//    {
+//        if (moves.Count == 0)
+//            return null;
+//        Move lastMove = moves[moves.Count - 1];
+//        moves.RemoveAt(moves.Count - 1);
+//        return lastMove;
+//    }
+
+//    public void Add(string playerName, Coordinate startPos, Coordinate finishPos, MoveState moveType)
+//    {
+//        Move currentMove = new Move(playerName, startPos, finishPos, moveType);
+//        moves.Add(currentMove);
+//    }
+
+//    public void Save()
+//    {
+//        XMLManager.instance.movesetDatabase = this;
+//        XMLManager.instance.SaveItems();
+//    }
+
+//    public void Reset()
+//    {
+//        moves.Clear();
+//    }
+
+//}
