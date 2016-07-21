@@ -14,15 +14,24 @@ public class XMLManager : MonoBehaviour {
         instance = this;
     }
     
-    public Moveset.MovesDB movesetDatabase;
+    public Moveset moveSet;
 
     //save function
     public void SaveItems()
     {
-        //open a new xml file
-        XmlSerializer serializer = new XmlSerializer(typeof(Moveset.MovesDB));
+        XmlSerializer serializer = new XmlSerializer(typeof(Moveset));
         FileStream fstream = new FileStream(Application.dataPath + "/XML/move_data.xml",FileMode.Create);
-        serializer.Serialize(fstream, movesetDatabase);
+        serializer.Serialize(fstream, moveSet);
         fstream.Close();
+    }
+
+    public void LoadItems()
+    {
+
+        //check if file exists
+        XmlSerializer serializer = new XmlSerializer(typeof(Moveset));
+        FileStream fstream = new FileStream(Application.dataPath + "/XML/move_data.xml", FileMode.Open);
+        moveSet = serializer.Deserialize(fstream) as Moveset;
+
     }
 }
