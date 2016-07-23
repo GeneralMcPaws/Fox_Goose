@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1253"?>
+<ArrayOfMove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Move>
+    <PlayerName>FOX</PlayerName>
+    <StartPos X="5" Y="4" />
+    <FinishPos X="6" Y="4" />
+    <MoveType>NORMAL</MoveType>
+  </Move>
+  <Move>
+    <PlayerName>Goose</PlayerName>
+    <FinishPos X="7" Y="4" />
+    <MoveType>NORMAL</MoveType>
+  </Move>
+  <Move>
+    <PlayerName>FOX</PlayerName>
+    <StartPos X="6" Y="4" />
+    <FinishPos X="8" Y="4" />
+    <MoveType>JUMP</MoveType>
+  </Move>
+  <Move>
+    <PlayerName>Goose</PlayerName>
+    <FinishPos X="8" Y="5" />
+    <MoveType>NORMAL</MoveType>
+  </Move>
+</ArrayOfMove>
