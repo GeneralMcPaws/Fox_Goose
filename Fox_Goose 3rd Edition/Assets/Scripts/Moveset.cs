@@ -30,7 +30,7 @@ public class Moveset
 
     public void Save(string dataPath)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(Moveset));
+        XmlSerializer serializer = new XmlSerializer(typeof(List<Move>));
         FileStream fstream = new FileStream(dataPath, FileMode.Create);
         serializer.Serialize(fstream, moves);
         fstream.Close();
