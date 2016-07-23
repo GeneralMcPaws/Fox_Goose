@@ -240,7 +240,7 @@ public class GameManager : MonoBehaviour {
 
     public void SaveState()
     {
-        moveset.Save();
+        moveset.Save(Application.dataPath + "/XML/move_data.xml");
     }
 
 }

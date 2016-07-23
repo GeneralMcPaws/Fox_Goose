@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Xml.Serialization;
 
-public class Direction : MonoBehaviour {
+public class Direction{
 
     private int x;
     private int y;
