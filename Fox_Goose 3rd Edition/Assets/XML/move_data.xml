@@ -1,25 +1,160 @@
 <?xml version="1.0" encoding="windows-1253"?>
-<ArrayOfMove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Move>
-    <PlayerName>FOX</PlayerName>
-    <StartPos X="5" Y="4" />
-    <FinishPos X="6" Y="4" />
-    <MoveType>NORMAL</MoveType>
-  </Move>
-  <Move>
-    <PlayerName>Goose</PlayerName>
-    <FinishPos X="7" Y="4" />
-    <MoveType>NORMAL</MoveType>
-  </Move>
-  <Move>
-    <PlayerName>FOX</PlayerName>
-    <StartPos X="6" Y="4" />
-    <FinishPos X="8" Y="4" />
-    <MoveType>JUMP</MoveType>
-  </Move>
-  <Move>
-    <PlayerName>Goose</PlayerName>
-    <FinishPos X="8" Y="5" />
-    <MoveType>NORMAL</MoveType>
-  </Move>
-</ArrayOfMove>
+<GameMoves xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Moves>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="-100" Y="-100" />
+      <FinishPos X="0" Y="9" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="4" Y="4" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="0" Y="9" />
+      <FinishPos X="1" Y="9" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="2" Y="9" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="1" Y="9" />
+      <FinishPos X="3" Y="9" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="4" Y="9" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="3" Y="9" />
+      <FinishPos X="5" Y="9" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="6" Y="9" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="5" Y="9" />
+      <FinishPos X="7" Y="9" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="8" Y="9" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="7" Y="9" />
+      <FinishPos X="9" Y="9" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="7" Y="5" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="9" Y="9" />
+      <FinishPos X="9" Y="8" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="8" Y="6" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="9" Y="8" />
+      <FinishPos X="8" Y="8" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="7" Y="8" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="8" Y="8" />
+      <FinishPos X="6" Y="8" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="5" Y="7" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="6" Y="8" />
+      <FinishPos X="4" Y="6" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="5" Y="5" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="4" Y="6" />
+      <FinishPos X="6" Y="4" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="6" Y="5" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="6" Y="4" />
+      <FinishPos X="6" Y="6" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="6" Y="6" />
+      <FinishPos X="4" Y="8" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="3" Y="7" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="4" Y="8" />
+      <FinishPos X="2" Y="6" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="2" Y="5" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="2" Y="6" />
+      <FinishPos X="2" Y="4" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+  </Moves>
+</GameMoves>

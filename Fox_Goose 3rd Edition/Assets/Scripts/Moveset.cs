@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
+[XmlRoot("GameMoves")]
 public class Moveset
 {
 
@@ -30,9 +31,9 @@ public class Moveset
 
     public void Save(string dataPath)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(List<Move>));
+        XmlSerializer serializer = new XmlSerializer(typeof(Moveset));
         FileStream fstream = new FileStream(dataPath, FileMode.Create);
-        serializer.Serialize(fstream, moves);
+        serializer.Serialize(fstream, this);
         fstream.Close();
     }
 
@@ -40,7 +41,7 @@ public class Moveset
     {
         XmlSerializer serializer = new XmlSerializer(typeof(Moveset));
         FileStream fstream = new FileStream(dataPath, FileMode.Open);
-        moves = (List<Move>)serializer.Deserialize(fstream);
+        moves = ((Moveset)serializer.Deserialize(fstream)).moves;
     }
 
     public void Reset()

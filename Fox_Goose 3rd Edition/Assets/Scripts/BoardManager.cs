@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
 
 public enum MoveState
 {
@@ -12,28 +14,103 @@ public enum MoveState
     OBLIGATORY
 }
 
+public enum LoadChoice
+{
+    XML_LOCAL,
+    DEFAULT
+}
+
+
+
 public class BoardManager : MonoBehaviour {
-    
+
+    public LoadChoice loader = LoadChoice.DEFAULT;
+    private string dataPath = @"C:\Users\Digi\Documents\UnityProjects\foxgoose\Fox_Goose 3rd Edition\Assets\XML\level1.xml";
+    private string levelName;
+
 	private Cell[,] grid;
     private Transform boardHolder;
     public int boardWidth;
     public int boardHeight;
 
-    public GameObject occupyPoo;
+    public GameObject occupied;
     public GameObject goose;
-    public GameObject groundTiles;
+    public GameObject groundTile;
     private GameObject fox;
     public GameObject hint;
 
     private IList<Coordinate> jumpMoves;
     private List<Coordinate> adjacentCoordinates = new List<Coordinate>();
 
+    #region Scene Initialisation
+
     public void SetupScene()
-	{
-		InitialiseBoard ();
-		CenterCamera ();
-		InitialiseFox ();
+	{ 
+        switch(loader)
+        {
+            case LoadChoice.DEFAULT:
+                InitialiseBoard();
+                CenterCamera();
+                InitialiseFox();
+                break;
+            case LoadChoice.XML_LOCAL:
+                Level level = LoadLevel(dataPath);
+                ConstructLevel(level);
+                CenterCamera();
+                InitialiseFox();
+                break;
+            default:
+                break;
+
+        }
 	}
+
+    Level LoadLevel(string path)
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(Level));
+        FileStream fstream = new FileStream(path, FileMode.Open);
+        return serializer.Deserialize(fstream) as Level;
+    }
+
+    void ConstructLevel(Level level)
+    {
+        boardHolder = new GameObject("Board").transform;
+        boardHeight = level.boardHeight;
+        boardWidth = level.boardWidth;
+        grid = new Cell[boardWidth, boardHeight];
+
+        GameObject prefab;
+
+        foreach (var item in level.items)
+        { 
+            for (int x = item.XMin; x <= item.XMax; x++)
+            {
+                for (int y = item.YMin; y <= item.YMax; y++)
+                {
+                    switch(item.PrefabName)
+                    {
+                        case "Fox":
+                            prefab = fox;
+                            break;
+                        case "Goose":
+                            prefab = goose;
+                            break;
+                        case "Poo":
+                            prefab = occupied;
+                            break;
+                        case "GroundTile":
+                        default:
+                            prefab = groundTile;
+                            break;
+                    }
+                    GameObject instance = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
+                    instance.transform.SetParent(boardHolder);
+                    if(item.PrefabName == "GroundTile")
+                        grid[x, y] = instance.GetComponent<Cell>();
+                }
+            }
+        }
+    }
 
 	void InitialiseBoard()
 	{
@@ -44,7 +121,7 @@ public class BoardManager : MonoBehaviour {
 		{
 			for (int y = 0; y < boardHeight; y++) 
 			{
-                GameObject instance = Instantiate(groundTiles, new Vector3(x, y), Quaternion.identity) as GameObject;
+                GameObject instance = Instantiate(groundTile, new Vector3(x, y), Quaternion.identity) as GameObject;
                 instance.transform.SetParent(boardHolder);
                 grid[x, y] = instance.GetComponent<Cell>();
 			}
@@ -71,22 +148,25 @@ public class BoardManager : MonoBehaviour {
 
 	void InitialiseFox()
 	{
-        if (((boardWidth % 2 == 0)))
-        {
+        //if (((boardWidth % 2 == 0)))
+        //{
 
-            fox = Instantiate(fox, new Vector3(boardWidth / 2 - UnityEngine.Random.Range(0, 2), boardHeight / 2 - UnityEngine.Random.Range(0, 2), -1f), Quaternion.identity) as GameObject;
-        }
-        else
-        {
+        //    fox = Instantiate(fox, new Vector3(boardWidth / 2 - UnityEngine.Random.Range(0, 2), boardHeight / 2 - UnityEngine.Random.Range(0, 2), -1f), Quaternion.identity) as GameObject;
+        //}
+        //else
+        //{
 
-            fox = Instantiate(fox, new Vector3(boardWidth / 2, boardHeight / 2, -1f), Quaternion.identity) as GameObject;
-        }
+        //    fox = Instantiate(fox, new Vector3(boardWidth / 2, boardHeight / 2, -1f), Quaternion.identity) as GameObject;
+        //}
 
-        grid[(int)fox.transform.position.x, (int)fox.transform.position.y].cellState = CellState.FOX;
+
+        fox = Instantiate(fox, new Vector3(-100f,-100f), Quaternion.identity) as GameObject;
+        //grid[(int)fox.transform.position.x, (int)fox.transform.position.y].cellState = CellState.FOX;
 
 	}
+    #endregion
 
-	public CellState CheckCellState(int x, int y)
+    public CellState CheckCellState(int x, int y)
 	{
 		return grid [x, y].cellState;
 	}
@@ -100,7 +180,7 @@ public class BoardManager : MonoBehaviour {
                 break;
             case CellState.VISITED:
                 grid[x, y].cellState = cellstate;
-                Instantiate(occupyPoo, new Vector2(x, y), Quaternion.identity);
+                Instantiate(occupied, new Vector2(x, y), Quaternion.identity);
                 break;
             case CellState.FOX:
                 grid[x, y].cellState = cellstate;
@@ -231,7 +311,7 @@ public class BoardManager : MonoBehaviour {
 
     
 
-    public MoveState IsMoveAllowed(int xNew,int yNew)
+    public MoveState IsMoveAllowed(int xNew,int yNew, bool firstMove)
     {
 
         var xOld = (int)fox.transform.position.x;
@@ -239,6 +319,9 @@ public class BoardManager : MonoBehaviour {
 
         if (grid[xNew,yNew].cellState != CellState.EMPTY)
             return MoveState.NOT_ALLOWED;
+
+        if (firstMove)
+            return MoveState.NORMAL;
 
         CalculateAdjacentCoordinates(xOld, yOld);
 
@@ -275,7 +358,7 @@ public class BoardManager : MonoBehaviour {
 
     
 
-    public void UpdateBoard(int xPos,int yPos,bool isFoxPlaying)
+    public void UpdateBoard(int xPos,int yPos,bool isFoxPlaying,bool firstMove)
     {
         if (!isFoxPlaying)
         {
@@ -283,10 +366,14 @@ public class BoardManager : MonoBehaviour {
             return;
         }
 
-        var previousXPos = (int)fox.transform.position.x;
-        var previousYpos = (int)fox.transform.position.y;
 
-        UpdateCell(previousXPos, previousYpos, CellState.VISITED);
+        if (!firstMove)
+        {
+            var previousXPos = (int)fox.transform.position.x;
+            var previousYpos = (int)fox.transform.position.y;
+
+            UpdateCell(previousXPos, previousYpos, CellState.VISITED);
+        }
         fox.transform.position = new Vector3(xPos, yPos, -1f);
         UpdateCell(xPos, yPos, CellState.FOX);
 
@@ -330,6 +417,7 @@ public class BoardManager : MonoBehaviour {
         set { if(fox==null)
                 fox = value; }
     }
+    
 }
 
 public class Coordinate
