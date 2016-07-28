@@ -27,11 +27,13 @@ public class GameManager : MonoBehaviour {
     public int pointsToWin;
 
 	public bool isFoxPlaying = true;
+    bool firstMove = true;
 
     private BoardManager boardScript;
 
 	public static GameManager instance = null;
     private Moveset moveset = new Moveset();
+
 
 	void Awake()
 	{
@@ -45,7 +47,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start () {
-
         boardScript = GetComponent<BoardManager>();
         boardScript.Fox = fox;
         boardScript.SetupScene();
@@ -76,7 +77,8 @@ public class GameManager : MonoBehaviour {
 
     private void FoxTurn(int xFoxPos,int yFoxPos)
     {
-        MoveState moveState = boardScript.IsMoveAllowed(xFoxPos, yFoxPos);
+        MoveState moveState = boardScript.IsMoveAllowed(xFoxPos, yFoxPos, firstMove);
+
         var xCurrentPos = (int)boardScript.Fox.transform.position.x;
         var yCurrentPos = (int)boardScript.Fox.transform.position.y;
 
@@ -116,15 +118,17 @@ public class GameManager : MonoBehaviour {
 
     private void MoveFox(int xFoxPos,int yFoxPos)
     {
-        boardScript.UpdateBoard(xFoxPos, yFoxPos,true);
+        boardScript.UpdateBoard(xFoxPos, yFoxPos,true,firstMove);
 
         isFoxPlaying = !isFoxPlaying;
+        if (firstMove)
+            firstMove = false;
     }
 
     private void JumpFox(int xFoxPos,int yFoxPos)
     {
 
-        boardScript.UpdateBoard(xFoxPos, yFoxPos,true);
+        boardScript.UpdateBoard(xFoxPos, yFoxPos,true, firstMove);
 
         if (!boardScript.FoxCanJump)
         {
@@ -135,7 +139,7 @@ public class GameManager : MonoBehaviour {
 
     private void MoveGoose(int xPos,  int yPos)
     {
-        boardScript.UpdateBoard(xPos, yPos,false);
+        boardScript.UpdateBoard(xPos, yPos,false, firstMove);
         isFoxPlaying = !isFoxPlaying;
     }
 
@@ -244,42 +248,3 @@ public class GameManager : MonoBehaviour {
     }
 
 }
-
-//public class Moveset
-//{
-
-//    [XmlArrayAttribute("Moves")]
-//    public List<Move> moves = null;
-
-//    public Moveset()
-//    {
-//        moves = new List<Move>();
-//    }
-
-//    public Move Undo()
-//    {
-//        if (moves.Count == 0)
-//            return null;
-//        Move lastMove = moves[moves.Count - 1];
-//        moves.RemoveAt(moves.Count - 1);
-//        return lastMove;
-//    }
-
-//    public void Add(string playerName, Coordinate startPos, Coordinate finishPos, MoveState moveType)
-//    {
-//        Move currentMove = new Move(playerName, startPos, finishPos, moveType);
-//        moves.Add(currentMove);
-//    }
-
-//    public void Save()
-//    {
-//        XMLManager.instance.movesetDatabase = this;
-//        XMLManager.instance.SaveItems();
-//    }
-
-//    public void Reset()
-//    {
-//        moves.Clear();
-//    }
-
-//}

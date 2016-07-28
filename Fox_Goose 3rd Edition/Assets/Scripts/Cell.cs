@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Cell : MonoBehaviour {
-	
-	public CellState cellState;
+
+    public CellState cellState = CellState.EMPTY;
 
 	// Use this for initialization
 	void Start () {

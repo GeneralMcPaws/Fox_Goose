@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='us-ascii'?> 
+<Level LevelName = "Level1" boardWidth = "10" boardHeight = "10">
+		<Items>
+			<Item PrefabName = "GroundTile" XMin = "0" XMax = "9" YMin = "0" YMax = "9" />
+		</Items>
+ </Level>
