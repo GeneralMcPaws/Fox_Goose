@@ -28,10 +28,10 @@ public class BoardManager : MonoBehaviour {
     private string dataPath = @"C:\Users\Digi\Documents\UnityProjects\foxgoose\Fox_Goose 3rd Edition\Assets\XML\level1.xml";
     private string levelName;
 
-	private Cell[,] grid;
+	private Cell[,] grid;    
     private Transform boardHolder;
-    public int boardWidth;
-    public int boardHeight;
+    public int collumns;
+    public int rows;
 
     public GameObject occupied;
     public GameObject goose;
@@ -75,9 +75,9 @@ public class BoardManager : MonoBehaviour {
     void ConstructLevel(Level level)
     {
         boardHolder = new GameObject("Board").transform;
-        boardHeight = level.boardHeight;
-        boardWidth = level.boardWidth;
-        grid = new Cell[boardWidth, boardHeight];
+        rows = level.boardHeight;
+        collumns = level.boardWidth;
+        grid = new Cell[collumns, rows];
 
         GameObject prefab;
 
@@ -116,10 +116,10 @@ public class BoardManager : MonoBehaviour {
 	{
         boardHolder = new GameObject("Board").transform;
 
-		grid = new Cell[boardWidth, boardHeight];
-		for (int x = 0; x < boardWidth; x++) 
+		grid = new Cell[collumns, rows];
+		for (int x = 0; x < collumns; x++) 
 		{
-			for (int y = 0; y < boardHeight; y++) 
+			for (int y = 0; y < rows; y++) 
 			{
                 GameObject instance = Instantiate(groundTile, new Vector3(x, y), Quaternion.identity) as GameObject;
                 instance.transform.SetParent(boardHolder);
@@ -133,16 +133,16 @@ public class BoardManager : MonoBehaviour {
 		float zPos = Camera.main.transform.position.z;
 
 
-		if (((boardWidth % 2 == 0))) {
-            Camera.main.orthographicSize = (boardWidth + boardHeight) / 4;
+		if (((collumns % 2 == 0))) {
+            Camera.main.orthographicSize = (collumns + rows) / 4;
 
-            Camera.main.transform.position = new Vector3 (boardWidth / 2-0.5f, (boardHeight / 2) - .5f, zPos);
+            Camera.main.transform.position = new Vector3 (collumns / 2-0.5f, (rows / 2) - .5f, zPos);
 
 		}
 		else {
-            Camera.main.orthographicSize = ((boardWidth + boardHeight) / 4)+0.5f;
+            Camera.main.orthographicSize = ((collumns + rows) / 4)+0.5f;
 
-            Camera.main.transform.position = new Vector3 ((boardWidth / 2), ((boardHeight / 2) - .5f)+0.5f, zPos);
+            Camera.main.transform.position = new Vector3 ((collumns / 2), ((rows / 2) - .5f)+0.5f, zPos);
 		}
 	}
 
@@ -417,7 +417,15 @@ public class BoardManager : MonoBehaviour {
         set { if(fox==null)
                 fox = value; }
     }
+
     
+
+    public Cell[,] Grid
+    {
+        get { return grid; }
+    }
+
+
 }
 
 public class Coordinate

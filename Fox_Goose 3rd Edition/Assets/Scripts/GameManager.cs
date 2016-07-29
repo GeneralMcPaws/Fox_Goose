@@ -5,6 +5,8 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
+
+[System.Serializable]
 public enum CellState
 {
 	OCCUPIED,
@@ -33,7 +35,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
     private Moveset moveset = new Moveset();
-
+    private GameState gameState;
 
 	void Awake()
 	{
@@ -245,6 +247,13 @@ public class GameManager : MonoBehaviour {
     public void SaveState()
     {
         moveset.Save(Application.dataPath + "/XML/move_data.xml");
+        gameState = new GameState(boardScript.Grid, boardScript.rows, boardScript.collumns, isFoxPlaying, foxPoints);
+        gameState.Save(Application.dataPath + "/XML/game_state.xml");
     }
 
+    public void LoadState()
+    {
+        gameState = gameState.Load(Application.dataPath + "/XML/game_state.xml");
+
+    }
 }
