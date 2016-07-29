@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.6f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -70,6 +68,7 @@
     <Compile Include="Assets\Scripts\Direction.cs" />
     <Compile Include="Assets\Scripts\Fox.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\Goose.cs" />
     <Compile Include="Assets\Scripts\HintButtonManager.cs" />
     <Compile Include="Assets\Scripts\HintManager.cs" />
@@ -81,10 +80,9 @@
     <Compile Include="Assets\Scripts\MusicManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\XML\game_state.xml" />
     <None Include="Assets\XML\level1.xml" />
-    <None Include="Assets\XML\move_data.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Assets\XML\move_data.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
