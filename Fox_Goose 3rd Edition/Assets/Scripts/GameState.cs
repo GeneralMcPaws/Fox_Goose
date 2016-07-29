@@ -26,11 +26,12 @@ public class GameState  {
     
     public GameState(Cell[,] grid, int rows, int collumns, bool foxTurn, int points)
     {
-        foreach(var cell in grid)
-            cells.Add(cell.cellState);
+        for (int x = 0; x < collumns; x++)
+            for (int y = 0; y < rows; y++)
+                cells.Add(grid[x, y].cellState);
         Rows = rows;
         Collumns = collumns;
-        FoxTurn = FoxTurn;
+        FoxTurn = foxTurn;
         Points = points;
 
     }
