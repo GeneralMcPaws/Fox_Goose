@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-
+using System.IO;
 
 [System.Serializable]
 public enum CellState
@@ -253,7 +253,13 @@ public class GameManager : MonoBehaviour {
 
     public void LoadState()
     {
-        gameState = gameState.Load(Application.dataPath + "/XML/game_state.xml");
+        XmlSerializer serializer = new XmlSerializer(typeof(GameState));
+        FileStream fstream = new FileStream(Application.dataPath + "/XML/game_state.xml", FileMode.Open);
+        gameState = serializer.Deserialize(fstream) as GameState;
 
+        isFoxPlaying = gameState.FoxTurn;
+        foxPoints = gameState.Points;
+        pointsText.text = "Fox Points = " + foxPoints;
+        boardScript.LoadState(gameState);
     }
 }

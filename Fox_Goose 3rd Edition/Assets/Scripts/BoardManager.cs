@@ -119,12 +119,12 @@ public class BoardManager : MonoBehaviour {
 		grid = new Cell[collumns, rows];
 		for (int x = 0; x < collumns; x++) 
 		{
-			for (int y = 0; y < rows; y++) 
-			{
+            for (int y = 0; y < rows; y++)
+            {
                 GameObject instance = Instantiate(groundTile, new Vector3(x, y), Quaternion.identity) as GameObject;
                 instance.transform.SetParent(boardHolder);
                 grid[x, y] = instance.GetComponent<Cell>();
-			}
+            }
 		}
 	}
 
@@ -161,10 +161,76 @@ public class BoardManager : MonoBehaviour {
 
 
         fox = Instantiate(fox, new Vector3(-100f,-100f), Quaternion.identity) as GameObject;
+        fox.transform.SetParent(boardHolder);
         //grid[(int)fox.transform.position.x, (int)fox.transform.position.y].cellState = CellState.FOX;
 
-	}
+    }
     #endregion
+
+    public void DESTROY()
+    {
+        Destroy(boardHolder.gameObject);
+
+    }
+
+    internal void LoadState(GameState gameState)
+    {
+        DESTROY();
+
+        boardHolder = new GameObject("Board").transform;
+        rows = gameState.Rows;
+        collumns = gameState.Collumns;
+
+        grid = new Cell[collumns, rows];
+        
+
+        for (int x = 0; x < collumns; x++)
+        {
+            for (int y = 0; y < rows; y++)
+            {
+                GameObject instance = Instantiate(groundTile, new Vector3(x, y), Quaternion.identity) as GameObject;
+                instance.transform.SetParent(boardHolder);
+                grid[x, y] = instance.GetComponent<Cell>();
+
+                GameObject prefab = null;
+
+                var index = x * rows + y;
+                switch(gameState.cells[index])
+                {
+                    case CellState.FOX:
+                        grid[x, y].cellState = CellState.FOX;
+                        prefab = fox;
+                        fox = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
+                        break;
+                    case CellState.OCCUPIED:
+                        grid[x, y].cellState = CellState.OCCUPIED;
+                        prefab = occupied;
+                        break;
+                    case CellState.GOOSE:
+                        prefab = goose;
+                        grid[x, y].cellState = CellState.GOOSE;
+                        break;
+                    case CellState.VISITED:
+                        prefab = occupied;
+                        grid[x, y].cellState = CellState.VISITED;
+                        break;
+                    case CellState.EMPTY:
+                    default:
+                        break;
+                }
+
+                if (prefab != null && prefab != fox)
+                {
+                    instance = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
+                    instance.transform.SetParent(boardHolder);
+                }
+
+            }
+        }  
+        
+
+    }
+
 
     public CellState CheckCellState(int x, int y)
 	{
@@ -180,14 +246,14 @@ public class BoardManager : MonoBehaviour {
                 break;
             case CellState.VISITED:
                 grid[x, y].cellState = cellstate;
-                Instantiate(occupied, new Vector2(x, y), Quaternion.identity);
+                (Instantiate(occupied, new Vector2(x, y), Quaternion.identity) as GameObject).transform.SetParent(boardHolder);
                 break;
             case CellState.FOX:
                 grid[x, y].cellState = cellstate;
                 break;
             case CellState.GOOSE:
                 grid[x, y].cellState = cellstate;
-                Instantiate(goose, new Vector2(x, y), Quaternion.identity);
+                (Instantiate(goose, new Vector2(x, y), Quaternion.identity) as GameObject).transform.SetParent(boardHolder);
                 break;
                 
         }
@@ -247,6 +313,8 @@ public class BoardManager : MonoBehaviour {
 
         adjacentCoordinates.AddRange( new List<Coordinate>(){north, south, northEast, southEast, northWest, southWest, East, West});
     }
+
+    
 
     private IList<Coordinate> FindObligatoryMoves(int xFoxPos, int yFoxPos)
     {
