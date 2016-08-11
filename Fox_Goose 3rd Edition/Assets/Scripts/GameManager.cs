@@ -258,6 +258,7 @@ public class GameManager : MonoBehaviour {
         gameState = serializer.Deserialize(fstream) as GameState;
 
         isFoxPlaying = gameState.FoxTurn;
+        firstMove = gameState.FirstMove;
         foxPoints = gameState.Points;
         pointsText.text = "Fox Points = " + foxPoints;
         boardScript.LoadState(gameState);
