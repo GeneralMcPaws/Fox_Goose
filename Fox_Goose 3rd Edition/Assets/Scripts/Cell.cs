@@ -12,7 +12,8 @@ public class Cell : MonoBehaviour {
 
 	public void OnMouseDown()
 	{
-		GameManager.instance.playTurn (this.transform.position.x, this.transform.position.y, this.cellState);
+        if(Input.GetMouseButtonDown(0))
+            GameManager.instance.playTurn (this.transform.position.x, this.transform.position.y, this.cellState);
 	}
 
 
