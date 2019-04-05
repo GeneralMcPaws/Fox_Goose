@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="windows-1253"?>
-<GameState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Rows="10" Collumns="10" FoxTurn="true" Points="9">
+<GameState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Rows="10" Collumns="10" FoxTurn="true" Points="7">
   <Cells>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>VISITED</CellState>
+    <CellState>VISITED</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
     <CellState>VISITED</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
@@ -18,80 +73,25 @@
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>VISITED</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
     <CellState>GOOSE</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>VISITED</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>GOOSE</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>VISITED</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>GOOSE</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
     <CellState>FOX</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
     <CellState>GOOSE</CellState>
+    <CellState>VISITED</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
