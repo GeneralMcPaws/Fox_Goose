@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="windows-1253"?>
+<?xml version="1.0" encoding="us-ascii"?>
 <GameMoves xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Moves>
     <Move>
@@ -41,10 +41,34 @@
       <MoveType>JUMP</MoveType>
     </Move>
     <Move>
+<<<<<<< HEAD
       <PlayerName>FOX</PlayerName>
       <StartPos X="7" Y="5" />
       <FinishPos X="7" Y="3" />
       <MoveType>JUMP</MoveType>
     </Move>
+=======
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="6" Y="1" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="6" Y="0" />
+      <FinishPos X="6" Y="2" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>Goose</PlayerName>
+      <FinishPos X="6" Y="3" />
+      <MoveType>NORMAL</MoveType>
+    </Move>
+    <Move>
+      <PlayerName>FOX</PlayerName>
+      <StartPos X="6" Y="2" />
+      <FinishPos X="6" Y="4" />
+      <MoveType>JUMP</MoveType>
+    </Move>
+>>>>>>> 93061e9ace5a847d02a446d8f51f40b91268696d
   </Moves>
 </GameMoves>

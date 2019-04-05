@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
@@ -21,3 +22,28 @@ Global
 		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
+=======
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{532BFCD0-48AB-523F-7727-9541FA88B4D3}") = "Fox_Goose 3rd Edition", "Assembly-CSharp.csproj", "{830A4751-2AC8-938D-548C-5E80E91C7F05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{830A4751-2AC8-938D-548C-5E80E91C7F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830A4751-2AC8-938D-548C-5E80E91C7F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830A4751-2AC8-938D-548C-5E80E91C7F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830A4751-2AC8-938D-548C-5E80E91C7F05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
+>>>>>>> 93061e9ace5a847d02a446d8f51f40b91268696d

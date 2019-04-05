@@ -19,6 +19,9 @@ public class GameState  {
     [XmlAttribute("FoxTurn")]
     public bool FoxTurn { get; set; }
 
+	[XmlAttribute("FirstMove")]
+    public bool FirstMove { get; set; }
+
     [XmlAttribute("Points")]
     public int Points { get; set; }
 

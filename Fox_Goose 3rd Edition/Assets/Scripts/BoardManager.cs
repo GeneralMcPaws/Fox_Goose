@@ -161,7 +161,7 @@ public class BoardManager : MonoBehaviour {
 
 
         fox = Instantiate(fox, new Vector3(-100f,-100f), Quaternion.identity) as GameObject;
-        fox.transform.SetParent(boardHolder);
+       // fox.transform.SetParent(boardHolder);
         //grid[(int)fox.transform.position.x, (int)fox.transform.position.y].cellState = CellState.FOX;
 
     }
@@ -193,14 +193,16 @@ public class BoardManager : MonoBehaviour {
                 grid[x, y] = instance.GetComponent<Cell>();
 
                 GameObject prefab = null;
-
+                bool settingfox = false;
                 var index = x * rows + y;
                 switch(gameState.cells[index])
                 {
                     case CellState.FOX:
                         grid[x, y].cellState = CellState.FOX;
-                        prefab = fox;
-                        fox = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
+                        fox.transform.position = new Vector3(x,y);
+                        settingfox = true;
+//                        prefab = fox;
+//                        fox = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
                         break;
                     case CellState.OCCUPIED:
                         grid[x, y].cellState = CellState.OCCUPIED;
@@ -219,7 +221,7 @@ public class BoardManager : MonoBehaviour {
                         break;
                 }
 
-                if (prefab != null && prefab != fox)
+                if (prefab != null && !settingfox )
                 {
                     instance = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
                     instance.transform.SetParent(boardHolder);
