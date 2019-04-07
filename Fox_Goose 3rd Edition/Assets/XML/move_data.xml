@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="windows-1253"?>
-=======
 <?xml version="1.0" encoding="us-ascii"?>
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
 <GameMoves xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Moves>
     <Move>
@@ -45,18 +41,6 @@
       <MoveType>JUMP</MoveType>
     </Move>
     <Move>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
-      <PlayerName>FOX</PlayerName>
-      <StartPos X="7" Y="5" />
-      <FinishPos X="7" Y="3" />
-      <MoveType>JUMP</MoveType>
-    </Move>
-<<<<<<< HEAD
-=======
-=======
       <PlayerName>Goose</PlayerName>
       <FinishPos X="6" Y="1" />
       <MoveType>NORMAL</MoveType>
@@ -78,7 +62,5 @@
       <FinishPos X="6" Y="4" />
       <MoveType>JUMP</MoveType>
     </Move>
->>>>>>> 93061e9ace5a847d02a446d8f51f40b91268696d
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
   </Moves>
 </GameMoves>

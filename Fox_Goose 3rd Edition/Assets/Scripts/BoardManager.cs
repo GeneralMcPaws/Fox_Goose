@@ -161,11 +161,7 @@ public class BoardManager : MonoBehaviour {
 
 
         fox = Instantiate(fox, new Vector3(-100f,-100f), Quaternion.identity) as GameObject;
-<<<<<<< HEAD
-        fox.transform.SetParent(boardHolder);
-=======
        // fox.transform.SetParent(boardHolder);
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
         //grid[(int)fox.transform.position.x, (int)fox.transform.position.y].cellState = CellState.FOX;
 
     }
@@ -197,25 +193,16 @@ public class BoardManager : MonoBehaviour {
                 grid[x, y] = instance.GetComponent<Cell>();
 
                 GameObject prefab = null;
-<<<<<<< HEAD
-
-=======
                 bool settingfox = false;
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
                 var index = x * rows + y;
                 switch(gameState.cells[index])
                 {
                     case CellState.FOX:
                         grid[x, y].cellState = CellState.FOX;
-<<<<<<< HEAD
-                        prefab = fox;
-                        fox = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
-=======
                         fox.transform.position = new Vector3(x,y);
                         settingfox = true;
 //                        prefab = fox;
 //                        fox = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
                         break;
                     case CellState.OCCUPIED:
                         grid[x, y].cellState = CellState.OCCUPIED;
@@ -234,11 +221,7 @@ public class BoardManager : MonoBehaviour {
                         break;
                 }
 
-<<<<<<< HEAD
-                if (prefab != null && prefab != fox)
-=======
                 if (prefab != null && !settingfox )
->>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
                 {
                     instance = Instantiate(prefab, new Vector3(x, y), Quaternion.identity) as GameObject;
                     instance.transform.SetParent(boardHolder);
