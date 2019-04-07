@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 m_EditorVersion: 2018.3.11f1
+=======
+<<<<<<< HEAD
+m_EditorVersion: 2018.3.11f1
+=======
+m_EditorVersion: 5.4.0f3
+m_StandardAssetsVersion: 0
+>>>>>>> 93061e9ace5a847d02a446d8f51f40b91268696d
+>>>>>>> 1a5c3c476274013a503480af8c2420e2d7aa0e3f
