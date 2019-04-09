@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<GameState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Rows="10" Collumns="10" FoxTurn="false" FirstMove="false" Points="11">
+<?xml version="1.0"?>
+<GameState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Rows="10" Collumns="10" FoxTurn="false" FirstMove="false" Points="12">
   <Cells>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
@@ -45,8 +45,6 @@
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
-    <CellState>VISITED</CellState>
-    <CellState>VISITED</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
@@ -56,11 +54,11 @@
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
-    <CellState>VISITED</CellState>
-    <CellState>GOOSE</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
     <CellState>VISITED</CellState>
     <CellState>GOOSE</CellState>
-    <CellState>FOX</CellState>
+    <CellState>VISITED</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
@@ -68,16 +66,18 @@
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>GOOSE</CellState>
     <CellState>FOX</CellState>
     <CellState>GOOSE</CellState>
+    <CellState>GOOSE</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>VISITED</CellState>
+    <CellState>EMPTY</CellState>
     <CellState>VISITED</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
@@ -86,6 +86,9 @@
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
+    <CellState>GOOSE</CellState>
+    <CellState>EMPTY</CellState>
+    <CellState>GOOSE</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
@@ -93,14 +96,9 @@
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
-    <CellState>EMPTY</CellState>
+    <CellState>VISITED</CellState>
+    <CellState>GOOSE</CellState>
+    <CellState>VISITED</CellState>
     <CellState>EMPTY</CellState>
     <CellState>EMPTY</CellState>
   </Cells>

@@ -95,7 +95,7 @@ public class BoardManager : MonoBehaviour {
                         case "Goose":
                             prefab = goose;
                             break;
-                        case "Poo":
+                        case "Bush":
                             prefab = occupied;
                             break;
                         case "GroundTile":
